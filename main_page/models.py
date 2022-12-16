@@ -50,21 +50,6 @@ class Dish(models.Model):
     photo = models.ImageField(upload_to=get_file_name)
 
 
-# Specials
-class Specials(models.Model):
-    def get_file_name(self, filename: str):
-        ext = filename.strip().split('.')[-1]
-        filename = f'{uuid.uuid4()}.{ext}'
-        return os.path.join('images/dishes', filename)
-
-    name = models.CharField(max_length=50, unique=True)
-    title = models.CharField(max_length=100, blank=True)
-    desc = models.TextField(max_length=400, blank=True)
-    position = models.PositiveSmallIntegerField()
-    is_visible = models.BooleanField(default=True)
-    photo = models.ImageField(upload_to=get_file_name)
-
-
 # Events
 class Events(models.Model):
     def get_file_name(self, filename: str):
@@ -76,3 +61,5 @@ class Events(models.Model):
     price = models.DecimalField(max_digits=8, decimal_places=2)
     photo = models.ImageField(upload_to=get_file_name)
     is_visible = models.BooleanField(default=True)
+    date = models.DateField()
+    time = models.TimeField()
