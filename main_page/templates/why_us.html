@@ -2,37 +2,33 @@
       <div class="container">
 
         <div class="section-title">
-          <h2>Why choose <span>Our Restaurant</span></h2>
-          <p>Ut possimus qui ut temporibus culpa velit eveniet modi omnis est adipisci expedita at voluptas atque vitae autem.</p>
+          <h2>Чому обрати <span>Наш Ресторан</span></h2>
+          <p>Для того, чтобы мы могли, порою, придираться, во всяком случае бывает,
+              но целесообразно получить удовольствие и удовольствие жизни.</p>
         </div>
 
         <div class="row">
-
-          <div class="col-lg-4">
-            <div class="box">
-              <span>01</span>
-              <h4>Lorem Ipsum</h4>
-              <p>Ulamco laboris nisi ut aliquip ex ea commodo consequat. Et consectetur ducimus vero placeat</p>
-            </div>
-          </div>
-
-          <div class="col-lg-4 mt-4 mt-lg-0">
-            <div class="box">
-              <span>02</span>
-              <h4>Repellat Nihil</h4>
-              <p>Dolorem est fugiat occaecati voluptate velit esse. Dicta veritatis dolor quod et vel dire leno para dest</p>
-            </div>
-          </div>
-
-          <div class="col-lg-4 mt-4 mt-lg-0">
-            <div class="box">
-              <span>03</span>
-              <h4> Ad ad velit qui</h4>
-              <p>Molestiae officiis omnis illo asperiores. Aut doloribus vitae sunt debitis quo vel nam quis</p>
-            </div>
-          </div>
+            {% for item in why_us %}
+                {% if item.first %}
+                    <div class="col-lg-4">
+                        <div class="box">
+                            <span>{{ item.pk }}</span>
+                            <h4>{{ item.name }}</h4>
+                            <p>{{ item.desc }}</p>
+                        </div>
+                    </div>
+                {% else %}
+                    <div class="col-lg-4 mt-4 mt-lg-0">
+                        <div class="box">
+                            <span>{{ item.pk }}</span>
+                            <h4>{{ item.name }}</h4>
+                            <p>{{ item.desc }}</p>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
 
         </div>
 
       </div>
-    </section>
+</section>

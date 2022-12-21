@@ -3,7 +3,8 @@
 
         <div class="section-title">
           <h2>Зацініть наші <span>Спеціальні пропозиції</span></h2>
-          <p>Ut possimus qui ut temporibus culpa velit eveniet modi omnis est adipisci expedita at voluptas atque vitae autem.</p>
+          <p>Для того, щоб ми могли, часом, причепитися, це станеться будь-яким способом,
+              але доцільно отримати задоволення та задоволення від життя.</p>
         </div>
 
         <div class="row">
@@ -25,7 +26,7 @@
           </div>
           <div class="col-lg-9 mt-4 mt-lg-0">
             <div class="tab-content">
-                {% for dish in special %}
+                {% for dish in specials %}
                     {% if forloop.first %}
                         <div class="tab-pane active show" id="tab-{{ dish.pk }}">
                             <div class="row">

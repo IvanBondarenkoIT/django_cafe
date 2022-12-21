@@ -14,7 +14,7 @@ def main_page(request):
     return render(request, 'main_page.html', context={
         'categories': categories,
         'dishes': dishes,
-        'about_us': about_us,
+        'about_us': about_us[0],
         'why_us': why_us,
         'specials': special_dishes,
         'events': events,
