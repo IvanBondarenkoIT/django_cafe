@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.validators import RegexValidator
 import uuid
 import os
 
@@ -91,3 +92,32 @@ class Events(models.Model):
 
     class Meta:
         ordering = ('date', )
+
+
+class Gallery(models.Model):
+    def get_file_name(self, filename: str):
+        ext = filename.strip().split('.')[-1]
+        filename = f'{uuid.uuid4()}.{ext}'
+        return os.path.join('images/gallery', filename)
+
+    photo = models.ImageField(upload_to=get_file_name)
+    desc = models.CharField(max_length=100, blank=True)
+    is_visible = models.BooleanField(default=True)
+
+
+class UserReservation(models.Model):
+    phone_validator = RegexValidator(regex=r'^\+?3?8?0?\d{2}?[ -]?(\d[ -]?){7}$', message='Phone number should be in +38099 XXX XXX xx format')
+    name = models.CharField(max_length=50)
+    # phone = models.CharField(max_length=22, validators=[phone_validator])
+    phone = models.CharField(max_length=22)
+    person = models.PositiveSmallIntegerField()
+    message = models.TextField(max_length=250, blank=True)
+    date = models.DateField(auto_now_add=True)
+    manager_data_processed = models.DateField(auto_now=True)
+    is_processed = models.BooleanField(default=False)
+
+    class Meta:
+        ordering = ('-date', )
+
+    def __str__(self):
+        return f'{self.name} {self.phone}: {self.message[:20]}'

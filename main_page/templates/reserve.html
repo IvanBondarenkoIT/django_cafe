@@ -1,0 +1,43 @@
+<section id="book-a-table" class="book-a-table">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Резервація <span>Столу</span></h2>
+          <p>Ut possimus qui ut temporibus culpa velit eveniet modi omnis est adipisci expedita at voluptas atque vitae autem.</p>
+        </div>
+
+        <form method="post" role="form" class="php-email-form">
+            {% csrf_token %}
+
+            <div class="row">
+                <div class="col-lg-4 col-md-6 form-group">
+                    {{ form_reserve.name }}
+                    <div class="validate"></div>
+                </div>
+                <div class="col-lg-4 col-md-6 form-group mt-3 mt-md-0">
+                    {{ form_reserve.phone }}
+                </div>
+                <div class="col-lg-4 col-md-6 form-group mt-3 mt-md-0">
+                    {{ form_reserve.person }}
+                    <div class="validate"></div>
+                </div>
+                <div class="col-lg-4 col-md-6 form-group mt-3">
+                    {{ form_reserve.message }}
+                    <div class="validate"></div>
+                </div>
+
+            </div>
+
+            <div class="mb-3">
+                <div class="loading">Loading</div>
+                <div class="error-message"></div>
+                <div class="sent-message">Your booking request was sent. We will call back or send an Email to confirm
+                    your reservation. Thank you!
+                </div>
+            </div>
+
+          <div class="text-center"><button type="submit">Відправити</button></div>
+        </form>
+
+      </div>
+    </section>
