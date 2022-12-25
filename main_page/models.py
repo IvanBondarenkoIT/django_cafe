@@ -22,7 +22,6 @@ class About(models.Model):
         return f'{self.title}'
 
 
-
 # Why Us
 class WhyUs(models.Model):
     name = models.CharField(max_length=100, unique=True)
@@ -106,10 +105,11 @@ class Gallery(models.Model):
 
 
 class UserReservation(models.Model):
-    phone_validator = RegexValidator(regex=r'^\+?3?8?0?\d{2}?[ -]?(\d[ -]?){7}$', message='Phone number should be in +38099 XXX XXX xx format')
+    phone_validator = RegexValidator(regex=r'^\+?3?8?\(?0?\d{2}?\)?[ -]?(\d[ -]?){7}$', message='Phone number should be'
+                                                                                                ' in +38099 XXX XXX xx format')
     name = models.CharField(max_length=50)
-    # phone = models.CharField(max_length=22, validators=[phone_validator])
-    phone = models.CharField(max_length=22)
+    phone = models.CharField(max_length=22, validators=[phone_validator])
+    # phone = models.CharField(max_length=22)
     person = models.PositiveSmallIntegerField()
     message = models.TextField(max_length=250, blank=True)
     date = models.DateField(auto_now_add=True)
