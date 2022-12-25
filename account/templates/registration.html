@@ -1,0 +1,20 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    <div class="container">
+            <div class="section-title text-center">
+                <h3>Registration</h3>
+            </div>
+            <div class="col-md-10 col-md-offset-1">
+                <div class="row">
+                    <div class="cpl-md-6">
+                        <form action="" method="post">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+                            <input type="submit" value="Registrate">
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+{% endblock %}
