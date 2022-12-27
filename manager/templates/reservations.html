@@ -7,7 +7,9 @@
                 {% for item in reservations %}
                     <div class="row">
                         <div class="col-md-3">
-
+                            <a href="{% url 'manager:update_reservation' pk=item.pk  %}">
+                                <button type="button" class="btn btn-primary">Close order</button>
+                            </a>
                         </div>
                         <div class="col-md-3">{{ item.name }}</div>
                         <div class="col-md-3">{{ item.phone }}</div>
