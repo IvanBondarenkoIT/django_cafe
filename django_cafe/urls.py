@@ -26,6 +26,7 @@ urlpatterns = [
     path('registration/', registration_view, name='registration'),
 
     path('admin/', admin.site.urls),
+    path('manager/', include('manager.urls')),
     path('', include('main_page.urls')),
 ]
 

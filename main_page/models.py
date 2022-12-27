@@ -109,7 +109,6 @@ class UserReservation(models.Model):
                                                                                                 ' in +38099 XXX XXX xx format')
     name = models.CharField(max_length=50)
     phone = models.CharField(max_length=22, validators=[phone_validator])
-    # phone = models.CharField(max_length=22)
     person = models.PositiveSmallIntegerField()
     message = models.TextField(max_length=250, blank=True)
     date = models.DateField(auto_now_add=True)
